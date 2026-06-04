@@ -966,6 +966,26 @@ h3 {
   color: #4a347c;
 }
 
+.indicator-term,
+.produce-name {
+  display: inline;
+  padding: 0.06em 0.24em;
+  border-radius: 6px;
+  font-weight: 900;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.indicator-term {
+  color: #8f155c;
+  background: #ffe1ef;
+}
+
+.produce-name {
+  color: #08735f;
+  background: #dff8ef;
+}
+
 .lesson-controls {
   position: fixed;
   right: 0;
