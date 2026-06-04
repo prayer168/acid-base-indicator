@@ -520,7 +520,8 @@ h3 {
 .material-card p,
 .safety-panel li,
 .detective-note p,
-.teacher-notes p {
+.teacher-notes p,
+.reading-notes p {
   color: var(--muted);
   line-height: 1.65;
 }
@@ -528,6 +529,7 @@ h3 {
 .safety-panel,
 .detective-note,
 .teacher-notes,
+.reading-notes,
 .quiz-card,
 .choice-panel {
   padding: 22px;
@@ -938,14 +940,30 @@ h3 {
   line-height: 1.6;
 }
 
-.teacher-notes {
+.teacher-notes,
+.reading-notes {
   margin-top: 24px;
 }
 
-.teacher-notes summary {
+.teacher-notes summary,
+.reading-notes summary {
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 900;
+}
+
+.reading-notes {
+  background: #fff;
+}
+
+.reading-content {
+  max-width: 880px;
+  margin-top: 18px;
+}
+
+.reading-content h3 {
+  margin-bottom: 14px;
+  color: #4a347c;
 }
 
 .lesson-controls {
