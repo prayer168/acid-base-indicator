@@ -1,5 +1,5 @@
 const pages = Array.from(document.querySelectorAll(".page"));
-const dots = Array.from(document.querySelectorAll(".dot"));
+const lessonTabs = Array.from(document.querySelectorAll(".lesson-tab"));
 const liquid = document.querySelector("#liquid");
 const experimentFeedback = document.querySelector("#experiment-feedback");
 const solutionButtons = document.querySelector("#solution-buttons");
@@ -210,8 +210,14 @@ function showPage(index) {
   pages.forEach((page, pageIndex) => {
     page.classList.toggle("is-current", pageIndex === currentPage);
   });
-  dots.forEach((dot, dotIndex) => {
-    dot.classList.toggle("is-active", dotIndex === currentPage);
+  lessonTabs.forEach((tab, tabIndex) => {
+    const isCurrentTab = tabIndex === currentPage;
+    tab.classList.toggle("is-active", isCurrentTab);
+    if (isCurrentTab) {
+      tab.setAttribute("aria-current", "page");
+    } else {
+      tab.removeAttribute("aria-current");
+    }
   });
   prevStepButton.disabled = currentPage === 0;
   nextStepButton.textContent = currentPage === pages.length - 1 ? "回到首頁" : "下一步";
@@ -464,8 +470,8 @@ showPage(0);
 
 document.querySelector("[data-start]").addEventListener("click", () => showPage(1));
 
-dots.forEach((dot) => {
-  dot.addEventListener("click", () => showPage(Number(dot.dataset.go)));
+lessonTabs.forEach((tab) => {
+  tab.addEventListener("click", () => showPage(Number(tab.dataset.go)));
 });
 
 solutionButtons.addEventListener("click", (event) => {
