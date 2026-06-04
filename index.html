@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>紫色高麗菜汁變色偵探隊</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" aria-label="教材導覽">
+    <a class="brand" href="#home" aria-label="回到首頁">
+      <span class="brand-icon" aria-hidden="true"></span>
+      <span>變色偵探隊</span>
+    </a>
+    <nav class="step-dots" aria-label="學習步驟">
+      <button class="dot is-active" type="button" data-go="0" aria-label="首頁"></button>
+      <button class="dot" type="button" data-go="1" aria-label="材料介紹"></button>
+      <button class="dot" type="button" data-go="2" aria-label="互動實驗"></button>
+      <button class="dot" type="button" data-go="3" aria-label="顏色分類任務"></button>
+      <button class="dot" type="button" data-go="4" aria-label="小測驗"></button>
+      <button class="dot" type="button" data-go="5" aria-label="學習總結"></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page hero-page is-current" id="home" data-page="0" aria-labelledby="home-title">
+      <div class="classroom-scene" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="board">
+          <div class="board-line"></div>
+          <div class="board-line short"></div>
+        </div>
+        <div class="desk">
+          <span class="desk-leg leg-left"></span>
+          <span class="desk-leg leg-right"></span>
+        </div>
+        <div class="cabbage-demo">
+          <span class="leaf leaf-one"></span>
+          <span class="leaf leaf-two"></span>
+          <span class="leaf leaf-three"></span>
+          <span class="stem"></span>
+        </div>
+        <div class="hero-cup">
+          <span class="hero-liquid"></span>
+          <span class="hero-cup-shine"></span>
+        </div>
+        <div class="dropper-demo">
+          <span class="dropper-bulb"></span>
+          <span class="dropper-tube"></span>
+          <span class="drop"></span>
+        </div>
+        <div class="flask-demo"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">國小三年級自然課</p>
+        <h1 id="home-title">紫色高麗菜汁變色偵探隊</h1>
+        <p class="subtitle">一起觀察水溶液讓高麗菜汁變成什麼顏色！</p>
+        <button class="primary-action" type="button" data-start>開始實驗</button>
+      </div>
+    </section>
+
+    <section class="page" data-page="1" aria-labelledby="materials-title">
+      <div class="page-heading">
+        <p class="eyebrow">第一站</p>
+        <h2 id="materials-title">認識今天的材料</h2>
+      </div>
+      <div class="materials-grid" id="materials-list"></div>
+      <aside class="safety-panel" aria-label="安全提醒">
+        <h3>安全提醒</h3>
+        <ul>
+          <li>實驗材料不能喝。</li>
+          <li>不可以自己混合不認識的清潔用品。</li>
+          <li>實驗後要洗手。</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="page" data-page="2" aria-labelledby="experiment-title">
+      <div class="page-heading">
+        <p class="eyebrow">第二站</p>
+        <h2 id="experiment-title">先預測，再實驗</h2>
+        <p>像小科學家一樣：先猜猜看，再加入紫色高麗菜汁觀察。</p>
+      </div>
+      <div class="experiment-layout">
+        <div class="lab-stage" aria-live="polite">
+          <div class="beaker" aria-label="透明杯中的紫色高麗菜汁">
+            <div class="liquid" id="liquid"></div>
+            <div class="pour-stream hidden" id="pour-stream"></div>
+            <div class="shine"></div>
+            <div class="bubble bubble-one"></div>
+            <div class="bubble bubble-two"></div>
+          </div>
+          <p class="feedback" id="experiment-feedback">先選一種水溶液，再選你預測的顏色。</p>
+        </div>
+        <div class="experiment-panel">
+          <section class="experiment-step" aria-labelledby="solution-step-title">
+            <h3 id="solution-step-title">1. 選一種水溶液</h3>
+            <div class="solution-pad" id="solution-buttons" aria-label="選擇水溶液"></div>
+          </section>
+          <section class="experiment-step" aria-labelledby="prediction-step-title">
+            <h3 id="prediction-step-title">2. 先預測顏色</h3>
+            <div class="prediction-pad" id="prediction-buttons" aria-label="選擇預測顏色"></div>
+          </section>
+          <button class="primary-action add-cabbage" type="button" id="add-cabbage" disabled>加入紫色高麗菜汁</button>
+        </div>
+      </div>
+      <section class="record-panel" aria-labelledby="record-title">
+        <h3 id="record-title">我的學習紀錄表</h3>
+        <div class="record-table-wrap">
+          <table class="record-table">
+            <thead>
+              <tr>
+                <th scope="col">水溶液</th>
+                <th scope="col">我的預測</th>
+                <th scope="col">實驗結果</th>
+              </tr>
+            </thead>
+            <tbody id="record-body">
+              <tr>
+                <td colspan="3">還沒有紀錄，完成一次實驗後會出現在這裡。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" data-page="3" aria-labelledby="sort-title">
+      <div class="page-heading">
+        <p class="eyebrow">第三站</p>
+        <h2 id="sort-title">顏色分類任務</h2>
+        <p>先選一種水溶液，再點它應該放進哪一組。</p>
+      </div>
+      <div class="sort-workspace">
+        <div class="choice-panel">
+          <h3>水溶液小卡</h3>
+          <div class="sort-items" id="sort-items"></div>
+        </div>
+        <div class="group-panel">
+          <button class="group-bin red-bin" type="button" data-group="red">偏紅色組</button>
+          <button class="group-bin purple-bin" type="button" data-group="purple">紫色不明顯組</button>
+          <button class="group-bin green-bin" type="button" data-group="green">藍綠色組</button>
+        </div>
+      </div>
+      <p class="feedback" id="sort-feedback">選好水溶液小卡後，就可以開始分類。</p>
+      <div class="celebration" id="celebration" aria-hidden="true"></div>
+    </section>
+
+    <section class="page" data-page="4" aria-labelledby="quiz-title">
+      <div class="page-heading">
+        <p class="eyebrow">第四站</p>
+        <h2 id="quiz-title">變色小測驗</h2>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-progress" id="quiz-progress"></div>
+        <h3 id="quiz-question"></h3>
+        <div class="quiz-options" id="quiz-options"></div>
+        <p class="feedback" id="quiz-feedback">讀完題目後，選一個答案。</p>
+        <button class="secondary-action hidden" type="button" id="next-question">下一題</button>
+        <div class="score-card hidden" id="score-card"></div>
+      </div>
+    </section>
+
+    <section class="page" data-page="5" aria-labelledby="summary-title">
+      <div class="page-heading">
+        <p class="eyebrow">最後一站</p>
+        <h2 id="summary-title">學習總結</h2>
+      </div>
+      <div class="summary-layout">
+        <table class="summary-table">
+          <caption>紫色高麗菜汁遇到不同水溶液的顏色變化</caption>
+          <thead>
+            <tr>
+              <th scope="col">水溶液類型</th>
+              <th scope="col">常見顏色變化</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>酸性水溶液</td>
+              <td>偏紅色</td>
+            </tr>
+            <tr>
+              <td>中性水溶液</td>
+              <td>紫色或變化不明顯</td>
+            </tr>
+            <tr>
+              <td>鹼性水溶液</td>
+              <td>藍綠色或綠色</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="detective-note">
+          <h3>小偵探的發現</h3>
+          <p>紫色高麗菜汁就像顏色小偵探，可以幫我們觀察不同水溶液的特性。</p>
+          <div class="student-summary" id="student-summary">完成幾次預測實驗後，這裡會出現你的學習鼓勵語。</div>
+        </div>
+      </div>
+      <details class="teacher-notes">
+        <summary>教師補充區</summary>
+        <p>紫色高麗菜含有花青素，是天然指示劑。</p>
+        <p>本教材重點是觀察、比較、分類與歸納，不深入教 pH 值。</p>
+        <p>pH 值與酸鹼原理可留到國中階段再學習。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="lesson-controls" aria-label="頁面控制">
+    <button class="secondary-action" type="button" id="prev-step">上一步</button>
+    <button class="secondary-action" type="button" id="restart">重新開始</button>
+    <button class="primary-action" type="button" id="next-step">下一步</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
